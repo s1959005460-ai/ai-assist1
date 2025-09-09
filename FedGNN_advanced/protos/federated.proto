@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package federated;
+
+message Param {
+  string key = 1;
+  bytes tensor = 2; // torch serialized bytes
+}
+
+message ModelState {
+  repeated Param params = 1;
+}
+
+message TrainRequest {
+  string client_id = 1;
+  ModelState masked_delta = 2;
+  int64 seq = 3;
+  string signature_hex = 4;
+}
+
+message TrainResponse {
+  bool ok = 1;
+  string message = 2;
+}
+
+service FederatedService {
+  rpc SendMaskedDelta(TrainRequest) returns (TrainResponse);
+  rpc GetGlobalModel(google.protobuf.Empty) returns (ModelState);
+}

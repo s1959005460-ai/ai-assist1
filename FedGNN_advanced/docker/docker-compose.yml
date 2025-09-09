@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  server:
+    build: .
+    container_name: fl_server
+    ports:
+      - "50051:50051"
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+  client1:
+    build: .
+    container_name: fl_client1
+    command: ["python", "client_entrypoint.py", "--id", "client1"]

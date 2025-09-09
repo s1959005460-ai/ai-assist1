@@ -1,0 +1,29 @@
+train:
+  rounds: 10
+  clients_per_round: 4
+  local_epochs: 1
+  use_delta: true
+  client_selection: random
+  checkpoint_every: 5
+
+aggregator:
+  name: fedavg   # options: fedavg, fedadam
+  kwargs:
+    lr: 0.001
+
+checkpoint:
+  dir: ./checkpoints
+
+privacy:
+  dp:
+    enabled: false
+    max_norm: 1.0
+    noise_multiplier: 0.0
+
+compression:
+  enabled: false
+  method: topk
+  topk_ratio: 0.1
+
+monitoring:
+  prometheus_port: 8001

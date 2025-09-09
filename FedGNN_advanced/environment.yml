@@ -1,0 +1,23 @@
+name: fedgnn-env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - torch
+    - torchvision
+    - torchaudio
+    - torch-geometric
+    - numpy
+    - scikit-learn
+    - fastapi
+    - uvicorn
+    - streamlit
+    - opacus
+    - ripser
+    - persim
+    - prometheus-client
+    - matplotlib
+    - pyyaml

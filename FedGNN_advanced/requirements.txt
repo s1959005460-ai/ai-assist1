@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+streamlit
+pytest
+pyyaml
+torch
+numpy
+matplotlib
+cryptography>=39.0.0
